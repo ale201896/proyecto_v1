@@ -6,6 +6,7 @@
 package Controladores;
 
 import Util.Constantes;
+import Util.Utilitarios;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,6 +24,8 @@ import javax.swing.JOptionPane;
  */
 public class loginController implements Initializable {
 
+    public static PrincipalController pc = new PrincipalController();
+    
     @FXML
     private Button button;
     @FXML
@@ -32,7 +35,7 @@ public class loginController implements Initializable {
 
     @FXML
     private void ingresar(ActionEvent event) {
-        validaLogueo();
+         validaLogueo();        
     }
 
     @Override
@@ -42,10 +45,20 @@ public class loginController implements Initializable {
     }
 
     private void validaLogueo() {
-        Constantes.CONT_LOG --;
-        Constantes.LOGUEO.setUsuario(txtusuario.getText());
-        Constantes.LOGUEO.setContraseña(txtpass.getText());
+        
+        PrincipalController.logueo.setUsuario(txtusuario.getText());
+       PrincipalController.logueo.setContraseña(txtpass.getText());
+        
+    //    Logueo logueo = new Logueo();
+     //   logueo.setUsuario(txtusuario.getText());
+       // logueo.setContraseña(txtpass.getText());
+        //pc.setLogueo(logueo);
+        
+       Utilitarios.consola(pc.validaLogueo());
+       
         Constantes.PRINC_CTRL.mostrarMensaje();
+        
+        pc.mostrarMensaje();
     }
 
 }

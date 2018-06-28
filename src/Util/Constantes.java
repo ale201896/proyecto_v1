@@ -24,7 +24,6 @@ public class Constantes {
 
     //OBJETOS FIJOS
     public static PrincipalController PRINC_CTRL = new PrincipalController(); //CONTROLADOR PRINCIPAL
-    public static run RUN = new run(); //RUN
     public static Stage STAGE = new Stage(); //STAGE PARA VISTAS EMERGENTES POP-UP
     public static Logueo LOGUEO = new Logueo(); //LOGUEO DE DATOS
 
