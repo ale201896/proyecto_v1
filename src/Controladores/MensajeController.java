@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  * @author Usuario
  */
 public class MensajeController implements Initializable {
- PrincipalController pc = new PrincipalController();
+ //PrincipalController pc = new PrincipalController();
     
     @FXML
     public Label lblmensaje;
@@ -34,6 +34,7 @@ public class MensajeController implements Initializable {
     private void aceptar(ActionEvent event) {
         try {
           //  Constantes.RUN.admVista(Constantes.STAGE, Constantes.NMB_VISTA_MNSJ, "", false);
+          PrincipalController pc = new PrincipalController();
             pc.cerrarVista(Constantes.NMB_VISTA_MNSJ);           
         } catch (Exception e) {
             Utilitarios.consola("No se pudo cerrar la vista. Sistema ---> " + e.getMessage());
@@ -42,8 +43,8 @@ public class MensajeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    //    lblmensaje.setText(Constantes.PRINC_CTRL.validaLogueo());
-        lblmensaje.setText(pc.validaLogueo());
+        lblmensaje.setText(Constantes.PRINC_CTRL.validaLogueo());
+     //   lblmensaje.setText(pc.validaLogueo());
     }
 
 }

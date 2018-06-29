@@ -17,13 +17,21 @@ import Vistas.run;
 public class PrincipalController {
 
     public static Logueo logueo = new Logueo();
-    public run run;
+    public run run = new run();
     
     public PrincipalController() {
-        run = new run();
+       // run = new run();
     }
     
     public String validaLogueo() {
+        
+        Utilitarios.consola("validologueo pc");
+        
+        if (Utilitarios.esVacio(logueo.getUsuario()) && 
+            Utilitarios.esVacio(logueo.getContraseña())    ) {
+            //Utilitarios.consola("datos vacios");
+        }
+  
        return "en mantenimiento";
     } 
     

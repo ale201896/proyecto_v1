@@ -35,7 +35,8 @@ public class loginController implements Initializable {
 
     @FXML
     private void ingresar(ActionEvent event) {
-         validaLogueo();        
+         validaLogueo(); 
+         Utilitarios.consola("boton");
     }
 
     @Override
@@ -54,9 +55,9 @@ public class loginController implements Initializable {
        // logueo.setContraseña(txtpass.getText());
         //pc.setLogueo(logueo);
         
-       Utilitarios.consola(pc.validaLogueo());
+       Utilitarios.consola(Constantes.PRINC_CTRL.validaLogueo());
        
-        Constantes.PRINC_CTRL.mostrarMensaje();
+        //Constantes.PRINC_CTRL.mostrarMensaje();
         
         pc.mostrarMensaje();
     }
