@@ -11,5 +11,8 @@ package Conexion;
  */
 public class Conexion {
   
+    public void conexion(){
+        
+    }
     
 }
