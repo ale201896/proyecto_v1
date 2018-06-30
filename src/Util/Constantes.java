@@ -7,7 +7,6 @@ package Util;
 
 import Controladores.PrincipalController;
 import Modelo.Logueo;
-import Vistas.run;
 import javafx.stage.Stage;
 
 /**
@@ -27,7 +26,7 @@ public class Constantes {
     public static Stage STAGE = new Stage(); //STAGE PARA VISTAS EMERGENTES POP-UP
     public static Logueo LOGUEO = new Logueo(); //LOGUEO DE DATOS
 
-    //RESULTADOS DE LOGUEOS
+    //DATOS DE LOGUEOS
     public static String DATOS_OK = "Bienvenido..."; // USUARIO Y CONTRASEÑA CORRECTOS
     public static String DATOS_VACIOS = "Ingrese Datos."; //USUARIO Y CONTRASEÑA VACIOS
     public static String USU_VACIO = "Ingrese Usuario."; // USUARIO VACIO
