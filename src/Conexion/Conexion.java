@@ -5,14 +5,25 @@
  */
 package Conexion;
 
+import Util.Constantes;
+import Util.Utilitarios;
+import java.sql.*;
+
 /**
  *
  * @author Usuario
  */
 public class Conexion {
-  
-    public void conexion(){
-        
+
+    public static Connection conectar() {
+        Connection con = null;
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            con = DriverManager.getConnection(Constantes.CNX_URL);
+        } catch (Exception e) {
+            Utilitarios.consola("Error Conexion: " + e.getMessage());
+        }
+        return con;
     }
-    
+
 }

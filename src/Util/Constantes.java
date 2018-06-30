@@ -19,8 +19,8 @@ public class Constantes {
     //VALORES FIJOS
     public static String TITULO_MENSAJE = "Mensaje"; //TITULO DE LA VISTA DE MENSAJE
     public static String NMB_VISTA_MNSJ = "mensaje.fxml"; //NOMBRE DE LA VISTA DE MENSAJE
-    public static String USUARIO_DEFAULT = "admin";
-    public static String PASS_DEFAULT = "123456";
+    public static String USUARIO_DEFAULT = "admin"; //USUARIO PREDETERMINADO
+    public static String PASS_DEFAULT = "123456"; //PASS DETERMINADO
 
     //OBJETOS FIJOS
     public static PrincipalController PRINC_CTRL = new PrincipalController(); //CONTROLADOR PRINCIPAL
@@ -37,5 +37,9 @@ public class Constantes {
     public static String DATOS_ERR = "Datos Incorrectos."; // USUARIO Y CONTRASEÑA INCORRECTOS
     public static String USU_BLOQ = "Usuario Bloqueado. Intentos Fallidos, comunicarse con el administrador."; //USUARIO BLOQUEADO
     public static int CONT_LOG = 4; // INTENTOS DE LOGUEO
+
+    //DATOS DE CONEXION
+    public static String CNX_URL = "jdbc:sqlserver://localhost:1433;databaseName=Proyecto;user=alejandro;password=magno201696"; 
+    public static String CNX_ERR = "No se pudo establecer la conexion.";
     
 }

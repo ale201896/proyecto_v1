@@ -5,6 +5,7 @@
  */
 package Controladores;
 
+import Acceso.LogueoDAO;
 import Modelo.Logueo;
 import Util.Constantes;
 import Util.Utilitarios;
@@ -17,44 +18,46 @@ import Vistas.run;
 public class PrincipalController {
 
     public static Logueo logueo = new Logueo();
-    public run run = new run();
-    
+    public run run ;
+
     public PrincipalController() {
-       // run = new run();
+         run = new run();
     }
-    
+
     public String validaLogueo() {
-        
-        Utilitarios.consola("validologueo pc");
-        
-        if (Utilitarios.esVacio(logueo.getUsuario()) && 
-            Utilitarios.esVacio(logueo.getContraseña())    ) {
-            //Utilitarios.consola("datos vacios");
-        }
-  
-       return "en mantenimiento";
-    } 
-    
-    public void abrirVista(String vista, String titulo) {
-        try {
-          //  Constantes.RUN.admVista(Constantes.STAGE, vista, titulo, true);           
-            run.admVista(Constantes.STAGE, vista, titulo, true);
-        } catch (Exception ex) {
-           Utilitarios.consola("error: " + ex.getMessage());
+        if (Utilitarios.esVacio(logueo.getUsuario())
+                && Utilitarios.esVacio(logueo.getContraseña())) {
+            return Constantes.DATOS_VACIOS;
+        } else {
+            if (Utilitarios.esVacio(logueo.getUsuario())) {
+                return Constantes.USU_VACIO;
+            } else {
+                if (Utilitarios.esVacio(logueo.getContraseña())) {
+                    return Constantes.PASS_VACIO;
+                } else {
+                    //validacion del logueo
+                    return LogueoDAO.validaLogueo(logueo.getUsuario(), logueo.getContraseña());
+                }
+            }
         }
     }
 
-    public void cerrarVista(String vista){
-         try {
-          //  Constantes.RUN.admVista(Constantes.STAGE, vista, titulo, true);           
-            run.admVista(Constantes.STAGE, vista, "", false);
+    public void abrirVista(String vista, String titulo) {
+        try {
+            //  Constantes.RUN.admVista(Constantes.STAGE, vista, titulo, true);           
+            run.admVista(Constantes.STAGE, vista, titulo, true);
         } catch (Exception ex) {
-            Utilitarios.consola("error: " + ex.getMessage());
+            Utilitarios.consola("Error: No se pudo abrir la vista. : " + ex.getMessage());
         }
     }
-    
-    public void mostrarMensaje() {
-        abrirVista(Constantes.NMB_VISTA_MNSJ, Constantes.TITULO_MENSAJE);
-    }   
+
+    public void cerrarVista(String vista) {
+        try {
+            //  Constantes.RUN.admVista(Constantes.STAGE, vista, titulo, true);           
+            run.admVista(Constantes.STAGE, vista, "", false);
+        } catch (Exception ex) {
+            Utilitarios.consola("Erro: No se pudo cerrar la vista" + ex.getMessage());
+        }
+    }
 
 }

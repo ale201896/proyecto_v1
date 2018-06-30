@@ -18,9 +18,9 @@ public class Utilitarios {
     public static boolean esVacio(String texto) {
         if (texto.isEmpty() || texto.equalsIgnoreCase("")) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
+
 }
