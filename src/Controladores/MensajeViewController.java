@@ -37,6 +37,7 @@ public class MensajeViewController implements Initializable {
             //  Constantes.RUN.admVista(Constantes.STAGE, Constantes.NMB_VISTA_MNSJ, "", false);
             PrincipalController pc = new PrincipalController();
             pc.cerrarVista(Constantes.NMB_VISTA_MNSJ);
+            Constantes.CONT_LOG--;
         } catch (Exception e) {
             Utilitarios.consola("No se pudo cerrar la vista. Sistema: ---> " + e.getMessage());
         }

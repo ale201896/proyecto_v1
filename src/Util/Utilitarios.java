@@ -5,6 +5,8 @@
  */
 package Util;
 
+import java.sql.*;
+
 /**
  *
  * @author Usuario
@@ -23,4 +25,15 @@ public class Utilitarios {
         }
     }
 
+    public static Connection conectar_BD() {
+        Connection con = null;
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            con = DriverManager.getConnection(Constantes.CNX_URL);
+        } catch (Exception e) {
+            Utilitarios.consola("Error de conexion: " + e.getMessage());
+        }
+        return con;
+    }
+    
 }

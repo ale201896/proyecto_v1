@@ -18,13 +18,14 @@ import Vistas.run;
 public class PrincipalController {
 
     public static Logueo logueo = new Logueo();
-    public run run ;
+    public run run;
 
     public PrincipalController() {
-         run = new run();
+        run = new run();
     }
 
     public String validaLogueo() {
+        String resultado;
         if (Utilitarios.esVacio(logueo.getUsuario())
                 && Utilitarios.esVacio(logueo.getContraseña())) {
             return Constantes.DATOS_VACIOS;
@@ -35,8 +36,18 @@ public class PrincipalController {
                 if (Utilitarios.esVacio(logueo.getContraseña())) {
                     return Constantes.PASS_VACIO;
                 } else {
-                    //validacion del logueo
-                    return LogueoDAO.validaLogueo(logueo.getUsuario(), logueo.getContraseña());
+                    resultado = LogueoDAO.validaLogueo(logueo.getUsuario(), logueo.getContraseña());
+                    if (resultado.equalsIgnoreCase(Constantes.PASS_ERR)) {
+                        if (Constantes.CONT_LOG <= 0) {
+                            LogueoDAO.bloquearUsuario(logueo.getUsuario());
+                            return resultado;
+                        } else {
+                            return resultado + Constantes.CONT_LOG + " intentos";
+                        }
+                    } else {
+                        return resultado;
+                    }
+
                 }
             }
         }
