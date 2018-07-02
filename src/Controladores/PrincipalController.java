@@ -47,7 +47,6 @@ public class PrincipalController {
                     } else {
                         return resultado;
                     }
-
                 }
             }
         }
